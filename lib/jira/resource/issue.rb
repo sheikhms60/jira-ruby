@@ -73,8 +73,11 @@ module JIRA
           url << "&expand=#{options[:expand].to_a.map{ |value| CGI.escape(value.to_s) }.join(',')}"
         end
 
+        puts "url is:"
         puts url
+        puts "username is:"
         puts options[:username]
+        puts "password is:"
         puts options[:password]
         response = client.get(url)
         json = parse_json(response.body)
