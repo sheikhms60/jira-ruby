@@ -73,6 +73,9 @@ module JIRA
           url << "&expand=#{options[:expand].to_a.map{ |value| CGI.escape(value.to_s) }.join(',')}"
         end
 
+        puts url
+        puts options[:username]
+        puts options[:password]
         response = client.get(url)
         json = parse_json(response.body)
         if options[:max_results] and options[:max_results] == 0

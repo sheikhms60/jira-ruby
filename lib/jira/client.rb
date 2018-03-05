@@ -203,6 +203,7 @@ module JIRA
     end
 
     def get(path, headers = {})
+      puts "#{path} - [#{headers}]" if @http_debug
       request(:get, path, nil, merge_default_headers(headers))
     end
 
